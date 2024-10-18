@@ -1,0 +1,17 @@
+@keyframes ai-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.hero-cta-button {
+    background: linear-gradient(270deg, #0d9488, #14b8a6, #2dd4bf);
+    background-size: 600% 600%;
+    animation: ai-animation 4s ease infinite;
+}
