@@ -9,6 +9,8 @@ import {TrendingNearYouSection} from '@/components/medicine/TrendingNearYouSecti
 import {SelfAdvertisement} from '@/components/SelfAdvertisement/SelfAdvertisement';
 import {DealsOfTheDay} from '@/components/DealsOfTheDay/DealsOfTheDay';
 import {VideoPlayer} from '@/components/VideoSection/VideoPlayer';
+import {HealthArticles} from '@/components/HealthArticle/HealthArticles';
+import {WhyChooseUs} from '@/components/WhyChooseUs/WhyChooseUs.';
 
 export default function HomePage() {
 
@@ -24,11 +26,11 @@ export default function HomePage() {
             <DealsOfTheDay/>
             <section className="container mx-auto">
                 <VideoPlayer
-                    videoSrc="https://pharmatica-test.blr1.cdn.digitaloceanspaces.com/1725699442600_V1.mp4"
+                    videoSrc="https://www.youtube.com/watch?v=z0tg2ltXka0&ab_channel=ChannelArtBackground"
                 />
             </section>
-            {/*<HealthArticles/>*/}
-            {/*<WhyChooseUs/>*/}
+            <HealthArticles/>
+            <WhyChooseUs/>
         </main>
     );
 }

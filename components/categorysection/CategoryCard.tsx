@@ -10,31 +10,15 @@ type CategoryCardProps = {
 export function CategoryCard(props: CategoryCardProps) {
     const {category} = props;
     return (
-        <Link href={`/${category.id}`} className="truncate border-0 min-w-fit bg-white">
-            <div className="flex flex-col items-center  w-[100px] md:w-[160px]">
-                <div
-                    className="flex items-center justify-center rounded-lg p-2 border w-full h-[100px] md:h-[160px] hover:shadow">
-                    {/*{*/}
-                    {/*    category?.iconUrl */}
-                    {/*        ? <Image src={category.iconUrl} alt={category.label}*/}
-                    {/*               width={150} objectFit="contain" height={150}*/}
-                    {/*               className="hover:scale-110 transition"*/}
-                    {/*        />*/}
-                    {/*        : <Image src={CategoryDemoIcon} alt={category.label}*/}
-                    {/*                 width={150} objectFit="contain" height={150}*/}
-                    {/*                 className="hover:scale-110 transition"*/}
-                    {/*        />*/}
-                    {/*}*/}
+        <Link href={`/${category.id}`} className="flex items-center h-[4rem] bg-white  hover:bg-slate-50 gap-2 border px-2 py-1 rounded-lg hover:border-teal-600">
                     <img src={category.iconUrl} alt={category.label}
-                           width={150}  height={150}
-                           className="hover:scale-110 transition object-contain"
+                           width={40}  height={40}
+                           className="object-contain rounded-md"
                     />
 
-                </div>
-                <p className="text-xs md:text-base font-medium truncate w-full text-center leading-6 text-slate-800 mt-2">
+                <p className="text-xs md:text-base font-medium text-wrap truncate w-full text-slate-800">
                     {category.label}
                 </p>
-            </div>
         </Link>
     );
 }

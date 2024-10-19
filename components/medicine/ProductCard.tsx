@@ -17,20 +17,32 @@ export function ProductCard(props: ProductCardProps) {
     const {product} = props;
 
     return (
-        <Link href={`/${product.category.id}/${product.productId}`} className="border-0 min-w-fit">
-            <div className="flex flex-col  w-[120px] md:w-[200px] gap-2">
-                <div
-                    className="flex items-center justify-center rounded-lg p-2 border w-full h-[120px] md:h-[200px] hover:shadow">
-                    {
-                        product.imageUrl
-                            ? <img src={product.imageUrl} alt={product.productName}
-                                   width={160}
-                                   className="hover:scale-110 transition w-[100px] md:w-[160px] h-[100px] md:h-[160px] object-fill"
-                            />
-                            : <Image src={MedicineDemo} alt={'medicine demo image'}/>
-                    }
-                </div>
-                <div>
+        <Link href={`/${product.category.id}/${product.productId}`} className="border-0">
+            <div className="flex flex-col justify-start border rounded-lg gap-2 p-2 h-[12rem]">
+               <div className="relative">
+                   <div
+                       className="flex items-center justify-center bg-slate-50 rounded-lg">
+                       {
+                           product.imageUrl
+                               ? <img src={product.imageUrl} alt={product.productName}
+                                      width={100}
+                                      className="hover:scale-110 transition w-[100px] md:w-[160px] h-[100px] md:h-[160px] object-fill"
+                               />
+                               : <Image src={MedicineDemo} alt={'medicine demo image'} width={120} height={120}/>
+                       }
+                   </div>
+                   {
+                       product?.discount ?
+                           <div className="absolute top-0 right-0">
+                               <Badge variant="secondary" className="bg-yellow-300 text-red-500">
+                                   {MedicineUtils.calculateDiscountPercentage(product.price, product.discount)}%
+                                   OFF
+                               </Badge>
+                           </div>
+                           : null
+                   }
+               </div>
+                <div className="text-center">
                     <span
                         className="text-xs md:text-base font-medium line-clamp-2 leading-6 text-wrap truncate text-slate-800">
                           {product.productName}
@@ -41,13 +53,8 @@ export function ProductCard(props: ProductCardProps) {
                         {
                             product?.discount ?
                                 <Fragment>
-                                    <Badge variant="secondary" className="text-red-500">
-                                        {MedicineUtils.calculateDiscountPercentage(product.price, product.discount)}%
-                                        OFF
-                                    </Badge>
-                                    <br/>
                                     <span
-                                        className="font-bold text-slate-900">৳{(product.price - product.discount).toFixed(2)}</span>
+                                        className="font-bold text-slate-900 ml-2">৳{(product.price - product.discount).toFixed(2)}</span>
                                 </Fragment>
                                 : null
                         }
